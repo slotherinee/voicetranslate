@@ -36,6 +36,32 @@ self.addEventListener('fetch', event => {
   );
 });
 
+// OFFLINE FALLBACK
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    fetch(event.request).catch(function() {
+      return caches.match(event.request).then(function(response) {
+        if (response) return response;
+        if (event.request.mode === 'navigate') {
+          return caches.match('/offline.html');
+        }
+      });
+    })
+  );
+});
+
+// PUSH NOTIFICATIONS
+self.addEventListener('push', function(event) {
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || 'Voice Translate';
+  const options = {
+    body: data.body || 'У вас новое уведомление!',
+    icon: '/icons/icon-192.png',
+    badge: '/icons/icon-192.png',
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
+
 // Update a service worker
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
