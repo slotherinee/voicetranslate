@@ -1,0 +1,61 @@
+{
+    "id": "/",
+    "name": "Voice Translate",
+    "short_name": "Voice Translate",
+    "description": "A beautiful PWA to translate voice to text",
+    "start_url": "/",
+    "scope": "/",
+    "display": "fullscreen",
+    "background_color": "#ffffff",
+    "theme_color": "#000000",
+    "orientation": "portrait",
+    "lang": "ru",
+    "categories": ["productivity", "utilities", "social", "translate"],
+    "icons": [
+      {
+        "src": "icons/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "icons/icon-512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "screenshots/screen.png",
+        "sizes": "540x720",
+        "type": "image/png"
+      }
+    ],
+    "shortcuts": [
+      {
+        "name": "Favorites",
+        "short_name": "Favorites",
+        "description": "View your favorite users",
+        "url": "/?shortcut=favorites",
+        "icons": [{ "src": "icons/heart.png", "sizes": "96x96" }]
+      },
+      {
+        "name": "Search",
+        "short_name": "Search",
+        "description": "Search for a user",
+        "url": "/?shortcut=search",
+        "icons": [{ "src": "icons/search.png", "sizes": "96x96" }]
+      },
+      {
+        "name": "Export",
+        "short_name": "Export",
+        "description": "Export your users",
+        "url": "/?shortcut=export",
+        "icons": [{ "src": "icons/export.png", "sizes": "96x96" }]
+      }
+    ],
+    "launch_handler": {
+      "client_mode": "auto"
+    }
+  }
